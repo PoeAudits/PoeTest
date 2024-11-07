@@ -2,6 +2,11 @@
 
 This repo is a general framework for writing contracts and tests. It is a work in progress. This is provided as is.
 
+Replace CONTRACT_NAME_HERE across multiple files.
+
+This repository uses contracts from the Recon-Fuzz chimera github repo:
+https://github.com/Recon-Fuzz/chimera
+
 ### Makefile
 
 See test/PoeUtils/BeforeAfter.sol after running command.
