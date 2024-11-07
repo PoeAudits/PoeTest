@@ -8,7 +8,7 @@ contract Init is TargetFunctions {
         super.setUp();
     }
 
-    function testInit() public {
+    function testInit() public view {
         console.log("Deployment Address: ", _target);
         console.log("Stable Token: ", _depositToken);
     }
