@@ -49,18 +49,5 @@
       }
     ],
     "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "exampleFunction",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "val",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable"
   }
 ]
