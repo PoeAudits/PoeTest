@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: UNLICENSED
+//SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -9,7 +9,7 @@ struct State {
 }
 
 contract Harness is CONTRACT_NAME_HERE {
-    constructor() CONTRACT_NAME_HERE() {}
+    constructor() {}
 
     function GetState() external view returns (State memory self) {}
 

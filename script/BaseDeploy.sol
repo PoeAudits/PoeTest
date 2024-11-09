@@ -9,25 +9,37 @@ import {IHarness} from "test/harness/IHarness.sol";
 import {IERC20} from "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 
 contract BaseDeploy is Script {
+    ///@dev Replace CONTRACT_NAME_HERE with the contract name
     CONTRACT_NAME_HERE internal contract_name_here;
 
     Harness internal harness;
     IHarness internal target;
 
+    address internal _target;
+
+    address internal _alice;
+    address internal _bob;
+    address internal _carl;
+    address[] internal users;
+
     IERC20 internal depositToken;
 
     address internal _depositToken;
-    address internal _target;
-
     uint256 internal depositTokenDecimals;
 
     function setUp() public virtual {
-        _depositToken = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
+        ///@dev First three Anvil generated addresses
+        _alice = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
+        _bob = 0x70997970C51812dc3A010C7d01b50e0d17dc79C8;
+        _carl = 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC;
+
+        _depositToken = 0x0000000000000000000000000000000000000000;
         depositToken = IERC20(_depositToken);
     }
 
     function deploy() public returns (address) {
         contract_name_here = new CONTRACT_NAME_HERE();
+
         _target = address(contract_name_here);
         target = IHarness(_target);
         return _target;

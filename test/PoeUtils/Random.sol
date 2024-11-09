@@ -7,6 +7,8 @@ import {vm} from "test/PoeUtils/Recon/IHevm.sol";
 abstract contract Random {
     uint256 random;
 
+    ///@dev Hash of random number assumed to be random, especially after modulo operation
+    ///@dev Used as deterministic randomness, allows reconstruction of random number from initial input
     function NewRandom() internal {
         random = uint256(keccak256(abi.encode(random)));
     }
@@ -16,16 +18,21 @@ abstract contract Random {
         NewRandom();
     }
 
-    function RandomRollForward() internal returns (uint256 forwardBlocks) {
-        forwardBlocks = (random % 15);
+    ///@dev Roll forward the blockchain a random amount of blocks
+    ///@dev Assumed block time is 6 seconds
+    function RandomRollForward(
+        uint256 min,
+        uint256 max
+    ) internal returns (uint256 forwardBlocks) {
+        forwardBlocks = RandomBoundValue(min, max);
         console.log("Blocks Forward: ", forwardBlocks);
         vm.roll(block.number + forwardBlocks);
         vm.warp(block.timestamp + (6 * forwardBlocks));
         console.log("Block Number: ", block.number);
         console.log("");
-        NewRandom();
     }
 
+    ///@dev Return a random value between min and max
     function RandomBoundValue(
         uint256 min,
         uint256 max

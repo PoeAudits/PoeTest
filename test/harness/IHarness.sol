@@ -7,4 +7,6 @@ interface IHarness {
     function GetState() external view returns (State memory self);
 
     function GetState(address user) external view returns (State memory self);
+
+    function exampleFunction() external returns (uint256 val);
 }
