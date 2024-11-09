@@ -2,8 +2,9 @@
 pragma solidity ^0.8.0;
 
 import {StdCheats, Test, console2 as console} from "lib/forge-std/src/Test.sol";
-import "test/PoeUtils/PoeUtils.sol";
+
 import "script/Deploy.sol";
+import "test/PoeUtils/PoeUtils.sol";
 
 contract Setup is Test, PoeUtils, DeploymentTemplate {
     bool isChimera = false;

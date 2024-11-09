@@ -30,10 +30,7 @@ abstract contract Gas {
         // Subtract 100 to account for the warm SLOAD in startMeasuringGas.
         uint256 gasDelta = checkpointGasLeft - checkpointGasLeft2 - 100;
 
-        emit LogGas(
-            string(abi.encodePacked(checkpointLabel, " Gas")),
-            gasDelta
-        );
+        emit LogGas(string(abi.encodePacked(checkpointLabel, " Gas")), gasDelta);
         console.log("Gas: ", gasDelta);
     }
 }

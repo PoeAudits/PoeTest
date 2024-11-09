@@ -22,15 +22,11 @@ contract Log {
     }
 
     function printBreak() internal view EnableLogs(ENABLED) {
-        console.log(
-            "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
-        );
+        console.log("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
         console.log("");
     }
 
-    function fixedLength(
-        string memory s
-    ) internal view returns (string memory) {
+    function fixedLength(string memory s) internal view returns (string memory) {
         bytes memory b = abi.encodePacked(s);
         if (b.length > stringLength) {
             return s;
@@ -107,12 +103,7 @@ contract Log {
     /**
      * @dev Returns true if the two strings are equal. Credit @OpenZeppelin
      */
-    function equal(
-        string memory a,
-        string memory b
-    ) internal pure returns (bool) {
-        return
-            bytes(a).length == bytes(b).length &&
-            keccak256(bytes(a)) == keccak256(bytes(b));
+    function equal(string memory a, string memory b) internal pure returns (bool) {
+        return bytes(a).length == bytes(b).length && keccak256(bytes(a)) == keccak256(bytes(b));
     }
 }

@@ -1,15 +1,12 @@
 // SPDX-License-Identifier: GPL-2.0
 pragma solidity ^0.8.0;
 
-import "./ChimeraSetup.sol";
 import {ChimeraProperties} from "./ChimeraProperties.sol";
+import "./ChimeraSetup.sol";
 import {BaseTargetFunctions} from "lib/chimera/src/BaseTargetFunctions.sol";
 import {IHevm, vm} from "lib/chimera/src/Hevm.sol";
 
-abstract contract ChimeraTargetFunctions is
-    BaseTargetFunctions,
-    ChimeraProperties
-{
+abstract contract ChimeraTargetFunctions is BaseTargetFunctions, ChimeraProperties {
     function handler_example(uint256 userIndex) external {
         // get an index into the recipients array to randomly
         // select a valid recipient

@@ -3,10 +3,11 @@
 pragma solidity ^0.8.4;
 
 import {Script, console2 as console} from "lib/forge-std/src/Script.sol";
+
+import {IERC20} from "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 import {CONTRACT_NAME_HERE} from "src/CONTRACT_NAME_HERE.sol";
 import {Harness} from "test/harness/Harness.sol";
 import {IHarness} from "test/harness/IHarness.sol";
-import {IERC20} from "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 
 contract BaseDeploy is Script {
     ///@dev Replace CONTRACT_NAME_HERE with the contract name

@@ -20,10 +20,7 @@ abstract contract Random {
 
     ///@dev Roll forward the blockchain a random amount of blocks
     ///@dev Assumed block time is 6 seconds
-    function RandomRollForward(
-        uint256 min,
-        uint256 max
-    ) internal returns (uint256 forwardBlocks) {
+    function RandomRollForward(uint256 min, uint256 max) internal returns (uint256 forwardBlocks) {
         forwardBlocks = RandomBoundValue(min, max);
         console.log("Blocks Forward: ", forwardBlocks);
         vm.roll(block.number + forwardBlocks);
@@ -33,10 +30,7 @@ abstract contract Random {
     }
 
     ///@dev Return a random value between min and max
-    function RandomBoundValue(
-        uint256 min,
-        uint256 max
-    ) internal returns (uint256 value) {
+    function RandomBoundValue(uint256 min, uint256 max) internal returns (uint256 value) {
         require(max >= min, "Max is less than Min");
         value = (random % (max - min)) + min;
         console.log("Random Value: ", value);

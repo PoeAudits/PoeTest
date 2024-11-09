@@ -23,9 +23,7 @@ contract DeploymentTemplate is BaseDeploy {
     function fundUsers(address[] memory users) internal {
         _depositTokenWhale = 0x0000000000000000000000000000000000000000;
 
-        (bool success, bytes memory data) = _depositToken.call(
-            abi.encodeWithSignature("decimals()")
-        );
+        (bool success, bytes memory data) = _depositToken.call(abi.encodeWithSignature("decimals()"));
 
         if (success) {
             depositTokenDecimals = abi.decode(data, (uint256));
