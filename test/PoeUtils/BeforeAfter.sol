@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: GPL-2.0
 pragma solidity ^0.8.0;
 
-// Delete State and add below after "make interface"
-// import {State} from "test/harness/Harness.sol";
+// Delete HarnessState and add below after "make interface"
+// import {HarnessState} from "test/harness/Harness.sol";
 
-import {State} from "test/harness/Harness.sol";
+import {HarnessState} from "test/harness/Harness.sol";
 
 abstract contract BeforeAfter {
-    State internal _before;
-    State internal _after;
+    HarnessState internal _before;
+    HarnessState internal _after;
 
     function __before(address user) internal virtual {}
 

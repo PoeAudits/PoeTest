@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0
 pragma solidity ^0.8.0;
 
-import {BeforeAfter, State} from "./BeforeAfter.sol";
+import {BeforeAfter, HarnessState} from "./BeforeAfter.sol";
 import {Gas} from "./Gas.sol";
 import {Log} from "./Log.sol";
 import {Random} from "./Random.sol";

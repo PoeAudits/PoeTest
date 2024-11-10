@@ -12,7 +12,7 @@
       {
         "name": "self",
         "type": "tuple",
-        "internalType": "struct State",
+        "internalType": "struct HarnessState",
         "components": [
           {
             "name": "TBD",
@@ -38,7 +38,7 @@
       {
         "name": "self",
         "type": "tuple",
-        "internalType": "struct State",
+        "internalType": "struct HarnessState",
         "components": [
           {
             "name": "TBD",

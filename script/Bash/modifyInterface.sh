@@ -12,9 +12,9 @@ fi
 # Modify the interface file in place using sed
 sed -i '
     # Add import after pragma line
-    /pragma solidity/ a import {State} from "test/harness/Harness.sol";
+    /pragma solidity/ a import {HarnessState} from "test/harness/Harness.sol";
     # Remove struct definition
-    /struct State {/,/}/ d
+    /struct HarnessState {/,/}/ d
 ' "$INTERFACE_FILE"
 
 echo "Successfully modified test/harness/IHarness.sol"
