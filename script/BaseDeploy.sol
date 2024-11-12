@@ -10,7 +10,7 @@ import {IHarness} from "test/harness/IHarness.sol";
 
 contract BaseDeploy is Script {
     ///@dev Replace CONTRACT_NAME_HERE with the contract name
-    CONTRACT_NAME_HERE internal contract_name_here;
+    CONTRACT_NAME_HERE internal implementation;
 
     Harness internal harness;
     IHarness internal target;
@@ -30,9 +30,9 @@ contract BaseDeploy is Script {
     }
 
     function deploy() public returns (address) {
-        contract_name_here = new CONTRACT_NAME_HERE();
+        implementation = new CONTRACT_NAME_HERE();
 
-        _target = address(contract_name_here);
+        _target = address(implementation);
         target = IHarness(_target);
         return _target;
     }
