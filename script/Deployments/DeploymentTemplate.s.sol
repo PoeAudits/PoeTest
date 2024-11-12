@@ -3,10 +3,16 @@
 pragma solidity 0.8.20;
 
 import "../BaseDeploy.sol";
+import {IERC20} from "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 
 contract DeploymentTemplate is BaseDeploy {
     ///@dev 10th Anvil generated addresses
     address internal _admin = 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720;
+
+    IERC20 internal depositToken;
+    address internal _depositToken;
+
+    uint256 internal depositTokenDecimals;
 
     ///@dev Transfering from existing wallets seems to work most reliably
     address internal _depositTokenWhale;
@@ -15,6 +21,9 @@ contract DeploymentTemplate is BaseDeploy {
     uint256 standardAmount;
 
     function setUp() public virtual override {
+        _depositToken = 0x0000000000000000000000000000000000000000;
+        depositToken = IERC20(_depositToken);
+
         super.setUp();
         super.deployHarness();
     }
@@ -23,7 +32,9 @@ contract DeploymentTemplate is BaseDeploy {
     function fundUsers(address[] memory users) internal {
         _depositTokenWhale = 0x0000000000000000000000000000000000000000;
 
-        (bool success, bytes memory data) = _depositToken.call(abi.encodeWithSignature("decimals()"));
+        (bool success, bytes memory data) = _depositToken.call(
+            abi.encodeWithSignature("decimals()")
+        );
 
         if (success) {
             depositTokenDecimals = abi.decode(data, (uint256));
