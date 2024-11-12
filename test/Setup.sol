@@ -3,10 +3,10 @@ pragma solidity ^0.8.0;
 
 import {StdCheats, Test, console2 as console} from "lib/forge-std/src/Test.sol";
 
-import "script/Deploy.sol";
+import "script/BaseDeploy.sol";
 import "test/PoeUtils/PoeUtils.sol";
 
-contract Setup is Test, PoeUtils, DeploymentTemplate {
+contract Setup is Test, PoeUtils, BaseDeploy {
     bool isChimera = false;
 
     mapping(address => string) names;
@@ -24,7 +24,8 @@ contract Setup is Test, PoeUtils, DeploymentTemplate {
 
     function setUp() public virtual override SetupChimera {
         setupUsers();
-        super.setUp();
+        BaseDeploy.setUp();
+        BaseDeploy.deployHarness();
         setupNames();
         __PoeUtils_init();
     }
@@ -36,7 +37,6 @@ contract Setup is Test, PoeUtils, DeploymentTemplate {
 
     ///@notice Setup contract labels
     function setupLabels() internal {
-        vm.label(_depositToken, "Deposit Token");
         vm.label(_target, "Implementation");
         vm.label(_alice, "Alice");
         vm.label(_bob, "Bob");
@@ -46,7 +46,6 @@ contract Setup is Test, PoeUtils, DeploymentTemplate {
     ///@notice Setup names array
     ///@dev Useful for logging contract names during debugging
     function setupNames() internal {
-        names[_depositToken] = "Deposit Token";
         names[_target] = "Target";
         names[_alice] = "Alice";
         names[_bob] = "Bob";
@@ -59,6 +58,8 @@ contract Setup is Test, PoeUtils, DeploymentTemplate {
         users.push(_alice);
         users.push(_bob);
         users.push(_carl);
+
+        BaseDeploy.fundUsers(users);
     }
 
     ///@dev Setup BeforeAfter functions to use Harness GetState functions

@@ -10,6 +10,5 @@ contract Init is TargetFunctions {
 
     function testInit() public view {
         console.log("Deployment Address: ", _target);
-        console.log("Stable Token: ", _depositToken);
     }
 }
