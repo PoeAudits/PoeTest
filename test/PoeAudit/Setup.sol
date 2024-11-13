@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import {StdCheats, Test, console2 as console} from "lib/forge-std/src/Test.sol";
 
 import "script/BaseDeploy.sol";
-import "test/PoeUtils/PoeUtils.sol";
+import "test/PoeAudit/PoeUtils/PoeUtils.sol";
 
 contract Setup is Test, PoeUtils, BaseDeploy {
     bool isChimera = false;
@@ -64,7 +64,7 @@ contract Setup is Test, PoeUtils, BaseDeploy {
 
     ///@dev Setup BeforeAfter functions to use Harness GetState functions
     ///@dev After running "make interface" need to remove state struct from IHarness and import it from Harness
-    ///@dev import {State} from "test/harness/Harness.sol";
+    ///@dev import {State} from "test/PoeAudit/harness/Harness.sol";
     function __before(address user) internal virtual override {
         _before = target.GetState(user);
     }

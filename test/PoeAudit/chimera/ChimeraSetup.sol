@@ -5,7 +5,7 @@ import "../Setup.sol";
 
 import {BaseSetup} from "lib/chimera/src/BaseSetup.sol";
 import {IHevm, vm} from "lib/chimera/src/Hevm.sol";
-import "test/PoeUtils/PoeUtils.sol";
+import "test/PoeAudit/PoeUtils/PoeUtils.sol";
 
 contract ChimeraSetup is BaseSetup, Setup {
     ///@dev Overriding setUp to prevent double setUp

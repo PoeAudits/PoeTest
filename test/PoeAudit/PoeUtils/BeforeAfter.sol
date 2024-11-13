@@ -2,9 +2,9 @@
 pragma solidity ^0.8.0;
 
 // Delete HarnessState and add below after "make interface"
-// import {HarnessState} from "test/harness/Harness.sol";
+// import {HarnessState} from "test/PoeAudit/harness/Harness.sol";
 
-import {HarnessState} from "test/harness/Harness.sol";
+import {HarnessState} from "test/PoeAudit/harness/Harness.sol";
 
 abstract contract BeforeAfter {
     HarnessState internal _before;
