@@ -13,7 +13,5 @@ contract Harness is CONTRACT_NAME_HERE {
 
     function GetState() external view returns (HarnessState memory self) {}
 
-    function GetState(
-        address user
-    ) external view returns (HarnessState memory self) {}
+    function GetState(address user) external view returns (HarnessState memory self) {}
 }
